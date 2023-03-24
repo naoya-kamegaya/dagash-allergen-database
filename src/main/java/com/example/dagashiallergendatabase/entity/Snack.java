@@ -14,7 +14,18 @@ public class Snack {
   private boolean containsPeanuts;
   private Date updatedAt;
 
-  public Snack(Integer id, String name, boolean containsShrimps, boolean containsCrabs, boolean containsWheat, boolean containsBuckwheat, boolean containsEggs, boolean containsMilk, boolean containsPeanuts, Date updatedAt) {
+  public Snack(
+          Integer id,
+          String name,
+          boolean containsShrimps,
+          boolean containsCrabs,
+          boolean containsWheat,
+          boolean containsBuckwheat,
+          boolean containsEggs,
+          boolean containsMilk,
+          boolean containsPeanuts,
+          Date updatedAt
+  ) {
     this.id = id;
     this.name = name;
     this.containsShrimps = containsShrimps;

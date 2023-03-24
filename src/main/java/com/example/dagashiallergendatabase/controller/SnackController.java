@@ -17,6 +17,7 @@ public class SnackController {
 
   @GetMapping("/snacks")
   public List<String> snacks(@RequestParam(required = false) Integer id) {
-    return snackService.findById(id).stream().map(SnackResponse::new).map(SnackResponse::getName).toList();
+    return snackService
+            .findById(id).stream().map(SnackResponse::new).map(SnackResponse::getName).toList();
   }
 }
