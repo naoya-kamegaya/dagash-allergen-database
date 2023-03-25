@@ -5,6 +5,8 @@ import com.example.dagashiallergendatabase.entity.Snack;
 import java.util.List;
 
 public interface SnackService {
+  List<Snack> findAll();
+
   List<Snack> findById(Integer id);
 
   //void create(String name);

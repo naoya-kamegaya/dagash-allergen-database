@@ -14,6 +14,10 @@ public class SnackServiceImpl implements SnackService {
     this.snackMapper = snackMapper;
   }
 
+  public List<Snack> findAll() {
+    return snackMapper.findAll();
+  }
+
   public List<Snack> findById(Integer id) {
     return snackMapper.findById(id);
   }

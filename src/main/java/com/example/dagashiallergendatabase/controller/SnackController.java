@@ -15,6 +15,12 @@ public class SnackController {
     this.snackService = snackService;
   }
 
+  @GetMapping("/snacks")
+  public List<String> snacks() {
+    return snackService
+            .findAll().stream().map(SnackResponse::new).map(SnackResponse::getName).toList();
+  }
+
   @GetMapping("/snacks/{id}")
   public List<String> snacks(@PathVariable("id") Integer id) {
     return snackService
