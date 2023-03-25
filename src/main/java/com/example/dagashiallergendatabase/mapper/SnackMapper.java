@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Optional;
 
 @Mapper
 public interface SnackMapper {
@@ -12,5 +13,5 @@ public interface SnackMapper {
   List<Snack> findAll();
 
   @Select("SELECT * FROM snacks WHERE id = #{id}")
-  List<Snack> findById(Integer id);
+  Optional<Snack> findById(Integer id);
 }

@@ -3,11 +3,12 @@ package com.example.dagashiallergendatabase.service;
 import com.example.dagashiallergendatabase.entity.Snack;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface SnackService {
   List<Snack> findAll();
 
-  List<Snack> findById(Integer id);
+  Optional<Snack> findById(Integer id);
 
   //void create(String name);
 

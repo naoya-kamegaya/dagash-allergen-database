@@ -5,6 +5,7 @@ import com.example.dagashiallergendatabase.mapper.SnackMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class SnackServiceImpl implements SnackService {
@@ -18,7 +19,7 @@ public class SnackServiceImpl implements SnackService {
     return snackMapper.findAll();
   }
 
-  public List<Snack> findById(Integer id) {
+  public Optional<Snack> findById(Integer id) {
     return snackMapper.findById(id);
   }
 }
