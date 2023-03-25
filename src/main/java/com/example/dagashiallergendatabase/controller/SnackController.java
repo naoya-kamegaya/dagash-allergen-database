@@ -2,7 +2,7 @@ package com.example.dagashiallergendatabase.controller;
 
 import com.example.dagashiallergendatabase.service.SnackService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -15,8 +15,8 @@ public class SnackController {
     this.snackService = snackService;
   }
 
-  @GetMapping("/snacks")
-  public List<String> snacks(@RequestParam Integer id) {
+  @GetMapping("/snacks/{id}")
+  public List<String> snacks(@PathVariable("id") Integer id) {
     return snackService
             .findById(id).stream().map(SnackResponse::new).map(SnackResponse::getName).toList();
   }
