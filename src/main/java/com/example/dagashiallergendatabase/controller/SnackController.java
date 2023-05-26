@@ -17,33 +17,34 @@ import java.util.Map;
 
 @RestController
 public class SnackController {
-    private final SnackService snackService;
+  private final SnackService snackService;
 
-    public SnackController(SnackService snackService) {
-        this.snackService = snackService;
-    }
+  public SnackController(SnackService snackService) {
+    this.snackService = snackService;
+  }
 
-    @GetMapping("/snacks")
-    public List<String> snacks() {
-        return snackService
-                .findAll().stream().map(SnackResponse::new).map(SnackResponse::getName).toList();
-    }
+  @GetMapping("/snacks")
+  public List<String> snacks() {
+    return snackService
+            .findAll().stream().map(SnackResponse::new).map(SnackResponse::getName).toList();
+  }
 
-    @GetMapping("/snacks/{id}")
-    public Snack findById(@PathVariable("id") Integer id) {
-        return snackService.findById(id);
-    }
+  @GetMapping("/snacks/{id}")
+  public Snack findById(@PathVariable("id") Integer id) {
+    return snackService.findById(id);
+  }
+  
+  @ExceptionHandler(value = ResourceNotFoundException.class)
 
-    @ExceptionHandler(value = ResourceNotFoundException.class)
-    public ResponseEntity<Map<String, String>> handleNoResourceFound(
-            ResourceNotFoundException e, HttpServletRequest request) {
-        Map<String, String> body = Map.of(
-                "timestamp", ZonedDateTime.now().toString(),
-                "status", String.valueOf(HttpStatus.NOT_FOUND.value()),
-                "error", HttpStatus.NOT_FOUND.getReasonPhrase(),
-                "message", e.getMessage(),
-                "path", request.getRequestURI());
+  public ResponseEntity<Map<String, String>> handleNoResourceFound(
+          ResourceNotFoundException e, HttpServletRequest request) {
+    Map<String, String> body = Map.of(
+            "timestamp", ZonedDateTime.now().toString(),
+            "status", String.valueOf(HttpStatus.NOT_FOUND.value()),
+            "error", HttpStatus.NOT_FOUND.getReasonPhrase(),
+            "message", e.getMessage(),
+            "path", request.getRequestURI());
 
-        return new ResponseEntity(body, HttpStatus.NOT_FOUND);
-    }
+    return new ResponseEntity(body, HttpStatus.NOT_FOUND);
+  }
 }

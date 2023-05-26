@@ -5,11 +5,11 @@ import com.example.dagashiallergendatabase.entity.Snack;
 import java.util.List;
 
 public interface SnackService {
-    List<Snack> findAll();
+  List<Snack> findAll();
 
-    Snack findById(Integer id);
+  Snack findById(Integer id);
 
-    //void create(String name);
+  //void create(String name);
 
-    //void update(int id, String name) throws Exception;
+  //void update(int id, String name) throws Exception;
 }
