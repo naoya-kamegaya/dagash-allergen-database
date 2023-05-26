@@ -18,8 +18,9 @@ public class SnackServiceImpl implements SnackService {
   public List<Snack> findAll() {
     return snackMapper.findAll();
   }
-  
+
   public Snack findById(Integer id) {
-    return snackMapper.findById(id).orElseThrow(() -> new ResourceNotFoundException("resource not found"));
+    return snackMapper.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("resource not found"));
   }
 }
