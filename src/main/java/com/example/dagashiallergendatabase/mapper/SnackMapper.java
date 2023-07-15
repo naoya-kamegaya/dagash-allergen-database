@@ -16,10 +16,11 @@ public interface SnackMapper {
   @Select("SELECT * FROM snacks WHERE id = #{id}")
   Optional<Snack> findById(Integer id);
 
-  @Insert("INSERT INTO snacks(id, name, " +
-          "containsCrabs, containsWheat, containsBuckwheat, containsEggs, containsMilk, containsPeanuts, updatedAt) " +
-          "VALUES (#{id}, #{name}, " +
-          "#{containsCrabs}, #{containsWheat}, #{containsBuckwheat}, #{containsEggs}, " +
-          "#{containsMilk}, #{containsPeanuts}, #{updatedAt})")
+  @Insert("INSERT INTO snacks(id, name, "
+          + "containsCrabs, containsWheat, containsBuckwheat, containsEggs, "
+          + "containsMilk, containsPeanuts, updatedAt) "
+          + "VALUES (#{id}, #{name}, "
+          + "#{containsCrabs}, #{containsWheat}, #{containsBuckwheat}, #{containsEggs}, "
+          + "#{containsMilk}, #{containsPeanuts}, #{updatedAt})")
   void createSnack(Snack createSnack);
 }
